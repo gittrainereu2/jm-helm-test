@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: ausgabe 
-      run: 
+      run: |
         echo "HANS=${{secrets.MYSECRET}}" >> $GITHUB_ENV
         env
   
