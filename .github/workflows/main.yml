@@ -14,4 +14,6 @@ jobs:
       run: |
         echo "HANS=${{secrets.MYSECRET}}" >> $GITHUB_ENV
         env | grep HANS
+    - name: ausgabe2
+      run: env | grep HANS 
   
