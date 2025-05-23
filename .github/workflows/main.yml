@@ -13,6 +13,6 @@ jobs:
     - name: ausgabe 
       run: |
         echo "export HANS=${{secrets.MYSECRET}}" >> $GITHUB_ENV
-        echo "ausgabe:->"$HANS"<-"
+        echo "ausgabe: $HANS :"
         env | grep HANS
 
