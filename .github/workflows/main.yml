@@ -1,4 +1,4 @@
-name: Deploy Helm Chart
+name: secret test 
 
 on:
   push:
@@ -6,26 +6,13 @@ on:
       - master
 
 jobs:
-  helm-deploy:
+  secret-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    - name: Set up Kubeconfig
+    - name: ausgabe 
       run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
-
-    - name: Install Helm
-      uses: azure/setup-helm@v4
-
-    - name: Deploy with Helm
-# bitte euren namespace eintragen anstelle von default , z.B. euren namen
-# muss eindeutig sein 
-      run: |
-
-        helm upgrade --install my-release ./charts/my-app --namespace jochen --create-namespace
-        kubectl -n jochen get all 
+        echo "HANS=${{secrets.MYSECRET}}" >> $GITHUB_ENV
+        echo $HANS
+        env 
 
