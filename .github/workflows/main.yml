@@ -2,12 +2,11 @@ name: Example Workflow
 
 on: [push]
 
-env:
-  HANS: 'hello'
-
 jobs:
   example-job:
     runs-on: ubuntu-latest
+    env:
+      HANS: 'world'
     steps:
       - run: echo $HANS
   
